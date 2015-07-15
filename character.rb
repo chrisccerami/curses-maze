@@ -1,7 +1,7 @@
 class Character
   attr_accessor :avatar, :x_pos, :y_pos
-  def initialize(x, y)
-    @avatar = '@'
+  def initialize(avatar, x, y)
+    @avatar = avatar
     @x_pos = x
     @y_pos = y
   end

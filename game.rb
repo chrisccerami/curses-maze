@@ -2,7 +2,7 @@ class Game
   def initialize
     @ui = UI.instance
     @map = Map.new(YAML.load_file('./map.yaml'))
-    @character = Character.new(1, 2)
+    @character = Character.new("@", 1, 2)
     at_exit { ui.close }
   end
 
