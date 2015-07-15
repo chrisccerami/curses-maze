@@ -34,7 +34,7 @@ class UI
 
   def wall?(x, y)
     setpos(y, x)
-    inch.chr == '|' || inch.chr == '_'
+    inch.chr == '|' || inch.chr == '-'
   end
 
   def alert_user
