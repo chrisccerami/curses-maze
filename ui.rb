@@ -32,7 +32,7 @@ class UI
     insch(' ')
   end
 
-  def is_wall?(x, y)
+  def wall?(x, y)
     setpos(y, x)
     inch.chr == '|' || inch.chr == '_'
   end

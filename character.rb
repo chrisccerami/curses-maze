@@ -33,6 +33,6 @@ class Character
   end
 
   def can_move?(target_x, target_y)
-    !UI.instance.is_wall?(target_x, target_y)
+    !UI.instance.wall?(target_x, target_y)
   end
 end
