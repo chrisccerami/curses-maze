@@ -32,16 +32,13 @@ class Game
   attr_reader :ui, :map, :character
 
   def move_character
-    case ui.accept_movement
-    when 'w'
-      character.move_up
-    when 'a'
-      character.move_left
-    when 's'
-      character.move_down
-    when 'd'
-      character.move_right
-    end
+    moves = {
+      w: proc { character.move_up },
+      a: proc { character.move_left },
+      s: proc { character.move_down },
+      d: proc { character.move_right }
+    }
+    moves[ui.accept_movement.to_sym].call
     ui.write(character.x_pos, character.y_pos, character.avatar)
   end
 end
