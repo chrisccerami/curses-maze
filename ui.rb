@@ -1,6 +1,6 @@
 class UI
   include Curses
-  require "singleton"
+  require 'singleton'
   include Singleton
 
   def initialize
@@ -19,7 +19,7 @@ class UI
   end
 
   def accept_movement
-    dirs = ["w", "a", "s", "d"]
+    dirs = %w(w a s d)
     loop do
       dir = getch
       return dir if dirs.include?(dir)
@@ -29,12 +29,12 @@ class UI
   def clear(x, y)
     setpos(y, x)
     delch
-    insch(" ")
+    insch(' ')
   end
 
   def is_wall?(x, y)
     setpos(y, x)
-    inch.chr == "|" || inch.chr == "_"
+    inch.chr == '|' || inch.chr == '_'
   end
 
   def alert_user

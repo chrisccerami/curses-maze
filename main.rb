@@ -1,9 +1,9 @@
-$LOAD_PATH.unshift "."
+$LOAD_PATH.unshift '.'
 
-require "curses"
-require "ui"
-require "game"
-require "map"
-require "character"
+require 'curses'
+require 'ui'
+require 'game'
+require 'map'
+require 'character'
 
 Game.new.run

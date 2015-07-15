@@ -1,7 +1,7 @@
 class Game
   def initialize
     @ui = UI.instance
-    @map = Map.new(%q(
+    @map = Map.new('
       _____________________________________
       |_______                            |
       |       |                           |
@@ -14,7 +14,7 @@ class Game
       |                          |     |  |
       |                          |     |  |
       |__________________________|_____|__|
-    ))
+    ')
     @character = Character.new(7, 3)
     at_exit { ui.close }
   end
@@ -22,7 +22,7 @@ class Game
   def run
     ui.write(0, 0, map.layout)
     ui.write(character.x_pos, character.y_pos, character.avatar)
-    while true
+    loop do
       move_character
     end
   end
@@ -33,16 +33,15 @@ class Game
 
   def move_character
     case ui.accept_movement
-    when "w"
+    when 'w'
       character.move_up
-    when "a"
+    when 'a'
       character.move_left
-    when "s"
+    when 's'
       character.move_down
-    when "d"
+    when 'd'
       character.move_right
     end
     ui.write(character.x_pos, character.y_pos, character.avatar)
   end
-
 end

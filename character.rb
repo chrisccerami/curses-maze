@@ -1,7 +1,7 @@
 class Character
   attr_accessor :avatar, :x_pos, :y_pos
   def initialize(x, y)
-    @avatar = "@"
+    @avatar = '@'
     @x_pos = x
     @y_pos = y
   end
@@ -17,19 +17,19 @@ class Character
   end
 
   def move_up
-    move(@x_pos, @y_pos-1)
+    move(@x_pos, @y_pos - 1)
   end
 
   def move_down
-    move(@x_pos, @y_pos+1)
+    move(@x_pos, @y_pos + 1)
   end
 
   def move_left
-    move(@x_pos-1, @y_pos)
+    move(@x_pos - 1, @y_pos)
   end
 
   def move_right
-    move(@x_pos+1, @y_pos)
+    move(@x_pos + 1, @y_pos)
   end
 
   def can_move?(target_x, target_y)
