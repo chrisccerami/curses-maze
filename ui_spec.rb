@@ -1,6 +1,5 @@
 require "rspec"
 require "./display"
 
-describe Display do
-
+describe UI do
 end

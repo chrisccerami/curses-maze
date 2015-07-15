@@ -1,5 +1,7 @@
 class UI
   include Curses
+  require "singleton"
+  include Singleton
 
   def initialize
     noecho
@@ -28,5 +30,15 @@ class UI
     setpos(y, x)
     delch
     insch(" ")
+  end
+
+  def is_wall?(x, y)
+    setpos(y, x)
+    inch.chr == "|" || inch.chr == "_"
+  end
+
+  def alert_user
+    beep
+    flash
   end
 end
