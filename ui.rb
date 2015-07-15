@@ -11,6 +11,7 @@ class UI
 
   def close
     close_screen
+    exit
   end
 
   def write(x, y, string)
@@ -18,11 +19,11 @@ class UI
     addstr(string)
   end
 
-  def accept_movement
-    dirs = %w(w a s d)
+  def accept_input
+    inputs = %w(w a s d q)
     loop do
-      dir = getch
-      return dir if dirs.include?(dir)
+      input = getch
+      return input if inputs.include?(input)
     end
   end
 
