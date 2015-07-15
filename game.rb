@@ -1,7 +1,20 @@
 class Game
   def initialize
     @ui = UI.instance
-    @map = Map.new
+    @map = Map.new(%q(
+      _____________________________________
+      |_______                            |
+      |       |                           |
+      |__     |                           |
+      |  |    |                           |
+      |  |    |________________________   |
+      |  |                             |  |
+      |  |                             |  |
+      |  |_______________________      |  |
+      |                          |     |  |
+      |                          |     |  |
+      |__________________________|_____|__|
+    ))
     @character = Character.new(7, 3)
     at_exit { ui.close }
   end
@@ -13,7 +26,6 @@ class Game
       move_character
     end
   end
-
 
   private
 
