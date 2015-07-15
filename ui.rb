@@ -3,6 +3,7 @@ class UI
 
   def initialize
     noecho
+    curs_set(0)
     init_screen
   end
 
@@ -15,11 +16,17 @@ class UI
     addstr(string)
   end
 
-  def choice_prompt(x, y, string, choices)
-    write(x, y, string + " ")
+  def accept_movement
+    dirs = ["w", "a", "s", "d"]
     loop do
-      choice = getch
-      return choice if choices.include?(choice)
+      dir = getch
+      return dir if dirs.include?(dir)
     end
+  end
+
+  def clear(x, y)
+    setpos(y, x)
+    delch
+    insch(" ")
   end
 end
