@@ -27,7 +27,7 @@ class UI
     end
   end
 
-  def clear(x, y)
+  def clear_position(x, y)
     setpos(y, x)
     delch
     insch(' ')
@@ -38,8 +38,26 @@ class UI
     inch.chr == '|' || inch.chr == '-'
   end
 
+  def door?(x, y)
+    setpos(y, x)
+    inch.chr =='#'
+  end
+
   def alert_user
     beep
     flash
+  end
+
+  def load_room(map)
+    write(0, 0, map.layout)
+    Game.instance.character.move(map.initial_x, map.initial_y)
+  end
+
+  def next_room
+    clear
+    current_room = Game.instance.map.number
+    new_map = Map.new(current_room + 1)
+    Game.instance.map = new_map
+    load_room(new_map)
   end
 end

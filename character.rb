@@ -8,9 +8,10 @@ class Character
 
   def move(x, y)
     if can_move?(x, y)
-      UI.instance.clear(@x_pos, @y_pos)
+      UI.instance.clear_position(@x_pos, @y_pos)
       @x_pos = x
       @y_pos = y
+      check_target(x, y)
     else
       UI.instance.alert_user
     end
@@ -34,5 +35,15 @@ class Character
 
   def can_move?(target_x, target_y)
     !UI.instance.wall?(target_x, target_y)
+  end
+
+  def check_target(x, y)
+    if UI.instance.door?(x, y)
+      move_through_door
+    end
+  end
+
+  def move_through_door
+    UI.instance.next_room
   end
 end

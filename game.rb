@@ -1,8 +1,12 @@
 class Game
+  include Singleton
+
+  attr_reader :ui, :character
+  attr_accessor :map
   def initialize
     @ui = UI.instance
-    @map = Map.new(YAML.load_file('./map.yaml'))
-    @character = Character.new("@", 1, 2)
+    @map = Map.new(1)
+    @character = Character.new("@", @map.initial_x, @map.initial_y)
     at_exit { ui.close }
   end
 
@@ -16,7 +20,6 @@ class Game
 
   private
 
-  attr_reader :ui, :map, :character
 
   def accept_input
     inputs = {
